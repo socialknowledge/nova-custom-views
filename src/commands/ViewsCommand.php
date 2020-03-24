@@ -179,7 +179,7 @@ class ViewsCommand extends Command
      */
     protected function installNpmDependencies()
     {
-        $this->runCommand('npm set progress=false && npm install', $this->viewsPath());
+        $this->runCommandx('npm set progress=false && npm install', $this->viewsPath());
     }
 
     /**
@@ -189,7 +189,7 @@ class ViewsCommand extends Command
      */
     protected function compile()
     {
-        $this->runCommand('npm run dev', $this->viewsPath());
+        $this->runCommandx('npm run dev', $this->viewsPath());
     }
 
     /**
@@ -199,7 +199,7 @@ class ViewsCommand extends Command
      */
     protected function composerUpdate()
     {
-        $this->runCommand('composer update', getcwd());
+        $this->runCommandx('composer update', getcwd());
     }
 
     /**
@@ -209,7 +209,7 @@ class ViewsCommand extends Command
      * @param  string  $path
      * @return void
      */
-    protected function runCommand($command, $path)
+    protected function runCommandx($command, $path)
     {
         $process = (new Process($command, $path))->setTimeout(null);
 
